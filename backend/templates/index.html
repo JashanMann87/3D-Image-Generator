@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Image to 3D Model Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>2D to 3D Converter</h1>
+        <p>Upload images of an object to generate a 3D model.</p>
+    </header>
+
+    <main class="main-content">
+        <div class="upload-container">
+            <h2>Step 1: Upload Your Images</h2>
+            <p>For best results, upload 4 images: front, back, left, and right views.</p>
+            <form id="upload-form" class="upload-form">
+                <div class="file-input-wrapper">
+                    <input type="file" id="file-input" name="images" multiple required accept="image/*">
+                    <label for="file-input" class="file-input-label">Choose Files</label>
+                </div>
+                <button type="submit" class="generate-button">
+                    <span class="btn-text">Generate 3D Model</span>
+                    <span class="spinner hidden"></span>
+                </button>
+            </form>
+            <div id="file-list"></div>
+            <div id="status-message" class="status-message"></div>
+        </div>
+
+        <div class="viewer-container">
+            <h2>Step 2: View Your Model</h2>
+            <div id="viewer" class="viewer-placeholder">
+                <p>Your 3D model will appear here...</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
